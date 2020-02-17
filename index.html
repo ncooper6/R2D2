@@ -13,6 +13,26 @@
   <script type="text/javascript">
     let c = document.getElementById("canvas");
     let ctx = c.getContext("2d");
+
+    function R2leg(x, y) {
+      ctx.beginPath();
+      ctx.lineWidth = "6";
+      ctx.rect(x, y, x + 30, y + 100);
+      ctx.rect(x + 10, y + 150, x + 10, y + 200);
+      ctx.rect(x, y + 400, x + 30, y + 30);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineWidth = "6";
+      ctx.moveTo(x + 10, y + 480);
+      ctx.lineTo(x + 70, y + 480);
+      ctx.lineTo(x + 90, y + 550);
+      ctx.lineTo(x - 10, y + 550);
+      ctx.closePath();
+      ctx.stroke();
+    };
+
+    R2leg(50, 50);
   </script>
 </body>
 
