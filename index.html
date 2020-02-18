@@ -16,6 +16,7 @@
 
     function R2leg(x, y) {
       //rectangles for top of legs
+      let trackY = y + 360;
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.rect(x, y, 80, 100);
@@ -26,25 +27,25 @@
       //Top isosceles trapezoid
       ctx.beginPath();
       ctx.lineWidth = "6";
-      ctx.moveTo(x + 10, 410);
-      ctx.lineTo(x + 70, 410);
-      ctx.lineTo(x + 90, 480);
-      ctx.lineTo(x - 10, 480);
+      ctx.moveTo(x + 10, trackY);
+      ctx.lineTo(x + 70, trackY);
+      ctx.lineTo(x + 90, trackY + 70);
+      ctx.lineTo(x - 10, trackY + 70);
       ctx.closePath();
       ctx.stroke();
 
       //Bottom isosceles trapezoid
       ctx.beginPath();
-      ctx.moveTo(x - 12.5, 480);
-      ctx.lineTo(x + 10, 500);
-      ctx.lineTo(x + 70, 500);
-      ctx.lineTo(x + 92.5, 480);
+      ctx.moveTo(x - 12.5, trackY + 70);
+      ctx.lineTo(x + 10, trackY + 90);
+      ctx.lineTo(x + 70, trackY + 90);
+      ctx.lineTo(x + 92.5, trackY + 70);
       ctx.stroke();
     };
 
     //call the function twice
-    R2leg(50, 50);
-    R2leg(500, 50);
+    R2leg(50, 100);
+    R2leg(500, 100);
   </script>
 </body>
 
