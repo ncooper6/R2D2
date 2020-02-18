@@ -15,6 +15,7 @@
     let ctx = c.getContext("2d");
 
     function R2leg(x, y) {
+      //rectangles for top of legs
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.rect(x, y, 80, 100);
@@ -22,6 +23,7 @@
       ctx.rect(x, y + 300, 80, 60);
       ctx.stroke();
 
+      //Top isosceles trapezoid
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.moveTo(x + 10, 410);
@@ -30,8 +32,17 @@
       ctx.lineTo(x - 10, 480);
       ctx.closePath();
       ctx.stroke();
+
+      //Bottom isosceles trapezoid
+      ctx.beginPath();
+      ctx.moveTo(x - 12.5, 480);
+      ctx.lineTo(x + 10, 500);
+      ctx.lineTo(x + 70, 500);
+      ctx.lineTo(x + 92.5, 480);
+      ctx.stroke();
     };
 
+    //call the function twice
     R2leg(50, 50);
     R2leg(500, 50);
   </script>
