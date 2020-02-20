@@ -34,9 +34,9 @@
     ///////////////
     // Bottom hexagon behind of rec
     side = 0,
-    size = 155,
-    x = 375,
-    y =448;
+      size = 155,
+      x = 375,
+      y = 448;
 
     ctx.beginPath();
     ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
@@ -691,24 +691,24 @@
     ///////////////
     // Hexagon
     side = 0,
-    size = 20,
-    x = 505,
-    y = 515;
+      size = 20,
+      x = 505,
+      y = 515;
 
-    function drawHex(){
+    function drawHex() {
 
-    ctx.beginPath();
-    ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+      ctx.beginPath();
+      ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
 
-    for (side; side < 7; side++) {
-      ctx.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+      for (side; side < 7; side++) {
+        ctx.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+      }
+      ctx.strokeStyle = '#cccccc';
+      ctx.fillStyle = " #003380";
+      ctx.fill();
+      ctx.stroke();
     }
-    ctx.strokeStyle = '#cccccc';
-    ctx.fillStyle = " #003380";
-    ctx.fill();
-    ctx.stroke();
-  }
-  drawHex();
+    drawHex();
     ///////////
     /// Bottom circle inside 2
     ctx.beginPath();
@@ -721,134 +721,266 @@
     ///////////
     /// Bottom hexagon behind rec-line 1
     function drawLine() {
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(305, 582); //  Move bottom and scale
-    ctx.lineTo(281, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 2
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(325, 582); //  Move bottom and scale
-    ctx.lineTo(306, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 3
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(331, 582); //  Move bottom and scale
-    ctx.lineTo(313, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 4
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(357, 582); //  Move bottom and scale
-    ctx.lineTo(348, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 5
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(363, 582); //  Move bottom and scale
-    ctx.lineTo(354, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 6
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(390, 582); //  Move bottom and scale
-    ctx.lineTo(396, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 7
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(396, 582); //  Move bottom and scale
-    ctx.lineTo(402, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 8
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(418, 582); //  Move bottom and scale
-    ctx.lineTo(436, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 9
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(425, 582); //  Move bottom and scale
-    ctx.lineTo(444, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 10
-    ctx.beginPath();
-    ctx.fillStyle = '#999999';
-    ctx.strokeStyle = '#999999';
-    ctx.moveTo(446, 582); //  Move bottom and scale
-    ctx.lineTo(469, 540); // Move top and scale
-    ctx.fill();
-    ctx.stroke();
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(305, 582); //  Move bottom and scale
+      ctx.lineTo(281, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 2
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(325, 582); //  Move bottom and scale
+      ctx.lineTo(306, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 3
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(331, 582); //  Move bottom and scale
+      ctx.lineTo(313, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 4
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(357, 582); //  Move bottom and scale
+      ctx.lineTo(348, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 5
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(363, 582); //  Move bottom and scale
+      ctx.lineTo(354, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 6
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(390, 582); //  Move bottom and scale
+      ctx.lineTo(396, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 7
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(396, 582); //  Move bottom and scale
+      ctx.lineTo(402, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 8
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(418, 582); //  Move bottom and scale
+      ctx.lineTo(436, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 9
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(425, 582); //  Move bottom and scale
+      ctx.lineTo(444, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 10
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.strokeStyle = '#999999';
+      ctx.moveTo(446, 582); //  Move bottom and scale
+      ctx.lineTo(469, 540); // Move top and scale
+      ctx.fill();
+      ctx.stroke();
     }
     drawLine();
-    //////////
-    //End
-    /////////
-    //Legs
-    function R2leg(x, y) {
-    //rectangles for top of legs
-    let trackY = y + 360;
-    ctx.beginPath();
-    ctx.lineWidth = "6";
-    ctx.rect(x, y, 80, 100);
-    ctx.rect(x + 10, y + 100, 60, 200);
-    ctx.rect(x, y + 300, 80, 60);
-    ctx.stroke();
+    /////////Nick's Code
+    //Outer Legs
+    function R2leg(x, y, legSide) {
+      //rectangles for top of legs
+      let trackY = y + 360;
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.rect(x, y, 80, 100);
+      ctx.rect(x + 10, y + 100, 60, 200);
+      ctx.rect(x, y + 300, 80, 60);
+      ctx.stroke();
 
-    //Top isosceles trapezoid
-    ctx.beginPath();
-    ctx.lineWidth = "6";
-    ctx.moveTo(x + 10, trackY);
-    ctx.lineTo(x + 70, trackY);
-    ctx.lineTo(x + 90, trackY + 70);
-    ctx.lineTo(x - 10, trackY + 70);
-    ctx.closePath();
-    ctx.stroke();
+      //Top isosceles trapezoid
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.moveTo(x + 10, trackY);
+      ctx.lineTo(x + 70, trackY);
+      ctx.lineTo(x + 90, trackY + 70);
+      ctx.lineTo(x - 10, trackY + 70);
+      ctx.closePath();
+      ctx.stroke();
 
-    //Bottom isosceles trapezoid
-    ctx.beginPath();
-    ctx.moveTo(x - 12.5, trackY + 70);
-    ctx.lineTo(x + 10, trackY + 90);
-    ctx.lineTo(x + 70, trackY + 90);
-    ctx.lineTo(x + 92.5, trackY + 70);
-    ctx.stroke();
-  };
+      //Bottom isosceles trapezoid
+      ctx.beginPath();
+      ctx.moveTo(x - 12.5, trackY + 70);
+      ctx.lineTo(x + 10, trackY + 90);
+      ctx.lineTo(x + 70, trackY + 90);
+      ctx.lineTo(x + 92.5, trackY + 70);
+      ctx.stroke();
 
-  //call the function twice
-  R2leg(50, 100);
-  R2leg(500, 100);
+      if (legSide == "L") {
+        ctx.beginPath();
+        ctx.rect(x + 80, y + 20, 15, 50);
+        ctx.stroke();
+      } else {
+        ctx.beginPath();
+        ctx.rect(x, y + 20, -15, 50);
+        ctx.stroke();
+      };
+    };
+    //call the functions
+    R2leg(125, 200, "L");
+    R2leg(545, 200, "R");
+
+    ///////////////////
+    //middle Lower leg
+    function midLeg(x, y) {
+      //Top Rectangle
+      ctx.beginPath();
+      ctx.fillStyle = '#999999';
+      ctx.lineWidth = 2;
+      ctx.fillRect(x, y + 32.5, 20, 17.5);
+      //Top isosceles trapezoid
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.moveTo(x - 20, y + 50);
+      ctx.lineTo(x + 40, y + 50);
+      ctx.lineTo(x + 60, y + 100);
+      ctx.lineTo(x - 40, y + 100);
+      ctx.closePath();
+      ctx.stroke();
+    };
+
+    //call the function
+    midLeg(365, 550);
+
+    /////////////////////
+    //Head
+    function R2head(x, y) {
+      ctx.beginPath();
+      ctx.arc(x, y, 155, 0, Math.PI, true);
+      ctx.closePath();
+      ctx.strokeStyle = '#999';
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+      ctx.stroke();
+      ctx.clip(); //clipping so no shapes can be outside the head
+
+      //Head styling rectangles
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.fillStyle = '#003380';
+      //all rectangles used for styling on the head
+      ctx.fillRect(215, 180, 325, 10); //Bottom band
+      ctx.fillRect(215, 135, 80, 35); //rectangle One left side
+      ctx.fillRect(300, 135, 10, 35); //rectangle Two
+      ctx.fillRect(315, 135, 20, 35); //rectangle Three buttons
+      ctx.fillRect(340, 145, 10, 25); //rectangle Four
+      ctx.fillRect(355, 145, 40, 25); //rectangle Five red light
+      ctx.fillRect(295, 40, 75, 25); //rectangle Six top of head
+      ctx.fillRect(385, 40, 75, 25); //rectangle Six top of head
+
+      for (i = 0; i < 5; i++) { //for loop for the array of rectangles on the head
+        ctx.fillRect((450 + (i * 20)), 145, 15, 25);
+      };
+      //shading for head
+      ctx.fillStyle = '#999';
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.rect(320, 140, 10, 7.5);
+      ctx.rect(320, 155, 10, 7.5);
+      ctx.stroke();
+      ctx.fill();
+      ctx.closePath();
+
+      //red light
+      ctx.beginPath();
+      ctx.arc(380, 157.5, 7.5, 0, 2 * Math.PI);
+      ctx.fillStyle = '#FD0000';
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#FF864A';
+      ctx.stroke();
+      ctx.closePath();
+
+      //R2's scope
+      ctx.beginPath();
+      ctx.arc(420, 155, 17.5, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fillStyle = '#999';
+      ctx.fill();
+      ctx.beginPath()
+      ctx.arc(420, 155, 10, 0, 2 * Math.PI);
+      ctx.fillStyle = '#eee';
+      ctx.fill();
+      ctx.lineWidth = 6;
+      ctx.strokeStyle = '#bfbfbf';
+      ctx.stroke();
+      ctx.closePath();
 
 
+      //Rd2 main camera outline shape;
+      ctx.beginPath();
+      ctx.lineWidth = 4;
+      ctx.moveTo(365 - 10, 25 + 50);
+      ctx.lineTo(365 + 40, 25 + 50);
+      ctx.lineTo(365 + 45, 25 + 102.5);
+      ctx.lineTo(365 + 10, 25 + 102.5);
+      ctx.lineTo(365, 25 + 95);
+      ctx.lineTo(365 - 20, 25 + 95);
+      ctx.strokeStyle = '#086696';
+      ctx.stroke();
+      ctx.fillStyle = '#003380';
+      ctx.fill();
+      ctx.clip();
+      ctx.closePath();
+
+      //camera and shading
+      ctx.beginPath();
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(375, 120, 55, 2.55);
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(380, 97.5, 20, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fillStyle = '#000';
+      ctx.fill();
+      ctx.beginPath()
+      ctx.arc(380, 97.5, 15, 0, 2 * Math.PI);
+      ctx.fillStyle = '#222';
+      ctx.fill();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#999';
+      ctx.stroke();
+      ctx.closePath();
+    };
+
+    R2head(375, 204);
   </script>
 </body>
 
