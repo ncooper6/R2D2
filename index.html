@@ -13,976 +13,978 @@
       background-color: #fff;
     }
   </style>
-
-</head>
-
-<body>
-  <canvas id="canvas" width="750" height="750"></canvas>
   <script type="text/javascript">
-    let c = document.getElementById("canvas");
-    let ctx = c.getContext("2d");
+    window.addEventListener('load', eventWindowLoad, false); //event listner to load canvas)
 
-    let xPos = c.width / 2; // Calculate x position on canvas
-    console.log();
-    let yPos = c.height / 2; // Calculate y position on canvas
-    console.log();
+    function eventWindowLoad() {
+      let c = document.getElementById("canvas");
+      let ctx = c.getContext("2d");
 
-    let recWidth = 310;
-    let recHeight = 335;
+      let xPos = c.width / 2; // Calculate x position on canvas
+      console.log();
+      let yPos = c.height / 2; // Calculate y position on canvas
+      console.log();
 
-    let radius = 30;
-    ///////////////
-    // Bottom hexagon behind of rec
-    side = 0,
-      size = 155,
-      x = 375,
-      y = 448;
+      let recWidth = 310;
+      let recHeight = 335;
 
-    ctx.beginPath();
-    ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
-
-    for (side; side < 4; side++) {
-      ctx.lineTo(x + size * Math.cos(side * Math.PI / 3), y + size * Math.sin(side * Math.PI / 3));
-    }
-    ctx.strokeStyle = '#999999';
-    ctx.fillStyle = "#fff";
-    ctx.fill();
-    ctx.stroke();
-    /////////////////
-    // R2D2 main body
-    function mbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.strokeStyle = '#000';
-      ctx.fillStyle = '#fff';
-      ctx.fill();
-      ctx.stroke();
-    }
-    mbdrawRec(xPos - 155, yPos - 170, recWidth, recHeight);
-    ////////////////
-    // Rec mouth-piece 1
-    function mpdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#003380';
-      ctx.strokeStyle = '#000';
-      ctx.fill();
-      ctx.stroke();
-    }
-    mpdrawRec(xPos - 80, yPos - 170, 160, 10);
-    ////////////////
-    // Rec mouth-piece 2
-    function mpdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#003380';
-      ctx.strokeStyle = '#000';
-      ctx.fill();
-      ctx.stroke();
-    }
-    mpdrawRec(xPos - 80, yPos - 160, 160, 10);
-    ////////////////
-    // Rec arm piece 1
-    function radrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fill();
-    }
-    radrawRec(295, 240, 35, 18);
-    ////////////////
-    // Rec arm piece 2
-    function radrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fill();
-    }
-    radrawRec(330, 243, 25, 12);
-    ////////////////
-    // Rec arm piece 3
-    function radrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fill();
-    }
-    radrawRec(355, 237, 99, 25);
-    ////////////////
-    // Rec body-outline 1
-    function bodrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.strokeStyle = '#000';
-      ctx.stroke();
-    }
-    bodrawRec(xPos - 100, yPos - 170, 200, 65);
-    ////////////////
-    // Rec arm piece 4
-    function radrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#003380';
-      ctx.fill();
-    }
-    radrawRec(295, 278, 99, 25);
-    ////////////////
-    // Rec arm piece 5
-    function radrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fill();
-    }
-    radrawRec(394, 285, 25, 12);
-    ////////////////
-    // Rec arm piece 6
-    function radrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fill();
-    }
-    radrawRec(419, 282, 35, 18);
-    ////////////////
-    // Rec body-outline 2
-    function bodrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.strokeStyle = '#000';
-      ctx.stroke();
-    }
-    bodrawRec(xPos - 100, yPos - 105, 200, 40);
-    ////////////////
-    // Rec center
-    function rcdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#003380';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rcdrawRec(xPos - 30, yPos - 50, 60, 128);
-    ////////////////
-    // Oval-grill 1
-    let cX = 0;
-    let cY = 0;
-
-    function drawArc() {
-      ctx.save();
-      ctx.translate(c.width / 2, c.height / 2);
-      ctx.scale(0.8, 0.9);
-      ctx.beginPath();
-      ctx.arc(cX, -19, radius, 0, 2 * Math.PI, false);
-      ctx.restore();
-      ctx.fillStyle = '#cccccc';
-      ctx.fill();
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#fff';
-      ctx.stroke();
-    }
-    drawArc();
-    ////////////////
-    // Rec grill outline 1
-    function godrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = '#000';
-      ctx.stroke();
-    }
-    godrawRec(xPos - 13, 335, 25, 45);
-    ////////////////
-    // Grill line 1
-    function gldrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#999999';
-      ctx.fill();
-      ctx.stroke();
-    }
-    gldrawRec(xPos - 15, yPos - 33, 29, 1);
-    ////////////////
-    // Grill line 2
-    function gldrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#999999';
-      ctx.fill();
-      ctx.stroke();
-    }
-    gldrawRec(xPos - 20, yPos - 20, 40, 1);
-    ////////////////
-    // Grill line 3
-    function gldrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#999999';
-      ctx.fill();
-      ctx.stroke();
-    }
-    gldrawRec(xPos - 19, yPos - 8, 38, 1);
-    ////////////////
-    // Grill line 4
-    function gldrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 2;
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#999999';
-      ctx.fill();
-      ctx.stroke();
-    }
-    gldrawRec(xPos - 10, 378, 20, 1);
-    ////////////////
-    // Oval-grill 2
-    function drawOneArc() {
-      ctx.save();
-      ctx.translate(c.width / 2, c.height / 2);
-      ctx.scale(0.8, 0.9);
-      ctx.beginPath();
-      ctx.arc(cX, 50, radius, 0, 2 * Math.PI, false);
-      ctx.restore();
-      ctx.fillStyle = '#cccccc';
-      ctx.fill();
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#fff';
-      ctx.stroke();
-    }
-    drawOneArc();
-    ////////////////
-    // Rec grill outline 2
-    function godrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = '#fff';
-      ctx.stroke();
-    }
-    godrawRec(xPos - 13, 398, 25, 45);
-    ////////////////
-    // Inside rec outline 1
-    function iroRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#fff';
-      ctx.fill();
-      ctx.stroke();
-    }
-    iroRec(xPos - 11, 405, 21, 1);
-    ////////////////
-    // Inside rec outline 2
-    function iroRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#fff';
-      ctx.fill();
-      ctx.stroke();
-    }
-    iroRec(xPos - 11, 415, 21, 1);
-    ////////////////
-    // Inside rec outline 3
-    function iroRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#fff';
-      ctx.fill();
-      ctx.stroke();
-    }
-    iroRec(xPos - 11, 425, 21, 1);
-    ////////////////
-    // Inside rec outline 4
-    function iroRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#737373';
-      ctx.strokeStyle = '#fff';
-      ctx.fill();
-      ctx.stroke();
-    }
-    iroRec(xPos - 11, 435, 21, 1);
-    ///////////////
-    // Left rec 1
-    function leftdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 5;
-      ctx.fill();
-      ctx.stroke();
-    }
-    leftdrawRec(233, 230, 30, 221);
-    ///////////////
-    // left rec 2
-    function leftOdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    leftOdrawRec(275, 325, 60, 40);
-    ///////////////
-    // left rec 3
-    function leftdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 5;
-      ctx.fill();
-      ctx.stroke();
-    }
-    leftdrawRec(303, 380, 30, 71);
-    ///////////////
-    // Rec button 1
-    function rbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#000';
-      ctx.strokeStyle = '#003380';
-      ctx.lineWidth = 3;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rbdrawRec(277, 380, 15, 5);
-    ///////////////
-    // Rec button 2
-    function rbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#000';
-      ctx.strokeStyle = '#003380';
-      ctx.lineWidth = 3;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rbdrawRec(277, 393, 15, 5);
-    ///////////////
-    // Rec button 3
-    function rbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#000';
-      ctx.strokeStyle = '#003380';
-      ctx.lineWidth = 3;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rbdrawRec(277, 406, 15, 5);
-    ///////////////
-    // Rec button 4
-    function rbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#000';
-      ctx.strokeStyle = '#003380';
-      ctx.lineWidth = 3;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rbdrawRec(277, 420, 15, 5);
-    ///////////////
-    // Rec button 5
-    function rbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#000';
-      ctx.strokeStyle = '#003380';
-      ctx.lineWidth = 3;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rbdrawRec(277, 434, 15, 5);
-    ///////////////
-    // Rec button 6
-    function rbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#000';
-      ctx.strokeStyle = '#003380';
-      ctx.lineWidth = 3;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rbdrawRec(277, 447, 15, 5);
-    ///////////////
-    // Right rec 1
-    function rightdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 5;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rightdrawRec(486, 230, 30, 221);
-    ///////////////
-    // Right rec 2
-    function rightdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 5;
-      ctx.fill();
-      ctx.stroke();
-    }
-    rightdrawRec(417, 327, 56, 124);
-    ///////////////
-    // Bottom rec-top 1
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#000';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(290, 465, 35, 23);
-    ///////////////
-    // Bottom rec-top 2
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#000';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(345, 465, 60, 23);
-    ///////////////
-    // Bottom rec-top 3
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#000';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(425, 465, 50, 23);
-    ///////////////
-    // Bottom rec-top 4
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#000';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(485, 465, 32, 23);
-    ///////////////
-    // Bottom rec-bottom
-    function brbdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#d9d9d9';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brbdrawRec(227, 465, 38, 68);
-    ///////////////
-    // Bottom rec-bottom inside shape 1
-    function bisdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 1;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bisdrawRec(232, 470, 4, 40);
-    ///////////////
-    // Bottom rec-bottom inside shape 2
-    function bisdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 1;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bisdrawRec(240, 470, 4, 40);
-    ///////////////
-    // Bottom rec-bottom inside shape 3
-    function bisdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 1;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bisdrawRec(248, 470, 4, 40);
-    ///////////////
-    // Bottom rec-bottom inside shape 4
-    function bisdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#002966';
-      ctx.strokeStyle = '#000';
-      ctx.lineWidth = 1;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bisdrawRec(256, 470, 4, 40);
-    ///////////////
-    // Bottom rec-bottom shape
-    function brbsdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#737373';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brbsdrawRec(232, 516, 27, 10);
-    ///////////////
-    // Bottom rec-bottom
-    function brbOdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#d9d9d9';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brbOdrawRec(280, 495, 53, 38);
-    ///////////////
-    // Bottom rec-bottom inside rec
-    function birdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#737373';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    birdrawRec(285, 502, 20, 27);
-    ///////////////
-    // Bottom square
-    function bsdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#003380';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bsdrawRec(353, 495, 45, 38);
-    ///////////
-    /// Bottom circle 1
-    ctx.beginPath();
-    ctx.arc(375, 514, 17, 0, 2 * Math.PI);
-    ctx.linewidth = 2;
-    ctx.fillStyle = '#003380';
-    ctx.strokeStyle = '#fff';
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom circle inside 2
-    ctx.beginPath();
-    ctx.arc(375, 514, 10, 0, 2 * Math.PI);
-    ctx.linewidth = 2;
-    ctx.fillStyle = '#8c8c8c';
-    ctx.strokeStyle = '#fff';
-    ctx.fill();
-    ctx.stroke();
-    ///////////////
-    // Bottom small-square 1
-    function bssdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = ' #d9d9d9';
-      ctx.strokeStyle = '#8c8c8c';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bssdrawRec(372, 499, 5, 9);
-    ///////////////
-    // Bottom small-square 2
-    function bssdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = ' #d9d9d9';
-      ctx.strokeStyle = '#8c8c8c';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bssdrawRec(360, 511, 9, 5);
-    ///////////////
-    // Bottom small-square 3
-    function bssdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = ' #d9d9d9';
-      ctx.strokeStyle = '#8c8c8c';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bssdrawRec(372, 520, 5, 9);
-    ///////////////
-    // Bottom small-square 4
-    function bssdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = ' #d9d9d9';
-      ctx.strokeStyle = '#8c8c8c';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    bssdrawRec(381, 511, 9, 5);
-    ///////////
-    /// Bottom circle inside 3
-    ctx.beginPath();
-    ctx.arc(375, 514, 5, 0, 2 * Math.PI);
-    ctx.linewidth = 2;
-    ctx.fillStyle = '#fff';
-    ctx.strokeStyle = '#003380';
-    ctx.fill();
-    ctx.stroke();
-    ///////////////
-    // Bottom rec-left 1
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(413, 496, 26, 37);
-    ///////////////
-    // Bottom rec-left 2
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(447, 496, 12, 37);
-    ///////////////
-    // Bottom rec-left 3
-    function brtdrawRec(xPos, yPos, recWidth, recHeight) {
-      ctx.beginPath();
-      ctx.rect(xPos, yPos, recWidth, recHeight);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#d9d9d9';
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-    }
-    brtdrawRec(466, 496, 12, 37);
-
-    ///////////////
-    // Hexagon
-    side = 0,
-      size = 20,
-      x = 505,
-      y = 515;
-
-    function drawHex() {
+      let radius = 30;
+      ///////////////
+      // Bottom hexagon behind of rec
+      side = 0,
+        size = 155,
+        x = 375,
+        y = 448;
 
       ctx.beginPath();
       ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
 
-      for (side; side < 7; side++) {
-        ctx.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+      for (side; side < 4; side++) {
+        ctx.lineTo(x + size * Math.cos(side * Math.PI / 3), y + size * Math.sin(side * Math.PI / 3));
       }
-      ctx.strokeStyle = '#cccccc';
-      ctx.fillStyle = " #003380";
-      ctx.fill();
-      ctx.stroke();
-    }
-    drawHex();
-    ///////////
-    /// Bottom circle inside 2
-    ctx.beginPath();
-    ctx.arc(505, 515, 10, 0, 2 * Math.PI);
-    ctx.linewidth = 2;
-    ctx.fillStyle = '#bfbfbf';
-    ctx.strokeStyle = '#bfbfbf';
-    ctx.fill();
-    ctx.stroke();
-    ///////////
-    /// Bottom hexagon behind rec-line 1
-    function drawLine() {
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
       ctx.strokeStyle = '#999999';
-      ctx.moveTo(305, 582); //  Move bottom and scale
-      ctx.lineTo(281, 540); // Move top and scale
+      ctx.fillStyle = "#fff";
       ctx.fill();
       ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 2
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(325, 582); //  Move bottom and scale
-      ctx.lineTo(306, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 3
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(331, 582); //  Move bottom and scale
-      ctx.lineTo(313, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 4
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(357, 582); //  Move bottom and scale
-      ctx.lineTo(348, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 5
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(363, 582); //  Move bottom and scale
-      ctx.lineTo(354, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 6
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(390, 582); //  Move bottom and scale
-      ctx.lineTo(396, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 7
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(396, 582); //  Move bottom and scale
-      ctx.lineTo(402, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 8
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(418, 582); //  Move bottom and scale
-      ctx.lineTo(436, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 9
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(425, 582); //  Move bottom and scale
-      ctx.lineTo(444, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-      ///////////
-      /// Bottom hexagon behind rec-line 10
-      ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.strokeStyle = '#999999';
-      ctx.moveTo(446, 582); //  Move bottom and scale
-      ctx.lineTo(469, 540); // Move top and scale
-      ctx.fill();
-      ctx.stroke();
-    }
-    drawLine();
-    /////////Nick's Code
-    //Outer Legs
-    function R2leg(x, y, legSide) {
-      //rectangles for top of legs
-      let trackY = y + 360;
-      ctx.beginPath();
-      ctx.lineWidth = 2;
-      ctx.rect(x, y, 80, 100);
-      ctx.rect(x + 10, y + 100, 60, 200);
-      ctx.rect(x, y + 300, 80, 60);
-      ctx.stroke();
-
-      //Top isosceles trapezoid
-      ctx.beginPath();
-      ctx.lineWidth = 2;
-      ctx.moveTo(x + 10, trackY);
-      ctx.lineTo(x + 70, trackY);
-      ctx.lineTo(x + 90, trackY + 70);
-      ctx.lineTo(x - 10, trackY + 70);
-      ctx.closePath();
-      ctx.stroke();
-
-      //Bottom isosceles trapezoid
-      ctx.beginPath();
-      ctx.moveTo(x - 12.5, trackY + 70);
-      ctx.lineTo(x + 10, trackY + 90);
-      ctx.lineTo(x + 70, trackY + 90);
-      ctx.lineTo(x + 92.5, trackY + 70);
-      ctx.stroke();
-
-      //if statement to decide which side the leg is on
-      if (legSide == "L") {
+      /////////////////
+      // R2D2 main body
+      function mbdrawRec(xPos, yPos, recWidth, recHeight) {
         ctx.beginPath();
-        ctx.rect(x + 80, y + 20, 15, 50);
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.strokeStyle = '#000';
+        ctx.fillStyle = '#fff';
+        ctx.fill();
         ctx.stroke();
-      } else {
+      }
+      mbdrawRec(xPos - 155, yPos - 170, recWidth, recHeight);
+      ////////////////
+      // Rec mouth-piece 1
+      function mpdrawRec(xPos, yPos, recWidth, recHeight) {
         ctx.beginPath();
-        ctx.rect(x, y + 20, -15, 50);
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#003380';
+        ctx.strokeStyle = '#000';
+        ctx.fill();
         ctx.stroke();
-      };
-    };
-    //call the functions
-    R2leg(125, 200, "L");
-    R2leg(545, 200, "R");
+      }
+      mpdrawRec(xPos - 80, yPos - 170, 160, 10);
+      ////////////////
+      // Rec mouth-piece 2
+      function mpdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#003380';
+        ctx.strokeStyle = '#000';
+        ctx.fill();
+        ctx.stroke();
+      }
+      mpdrawRec(xPos - 80, yPos - 160, 160, 10);
+      ////////////////
+      // Rec arm piece 1
+      function radrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fill();
+      }
+      radrawRec(295, 240, 35, 18);
+      ////////////////
+      // Rec arm piece 2
+      function radrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fill();
+      }
+      radrawRec(330, 243, 25, 12);
+      ////////////////
+      // Rec arm piece 3
+      function radrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fill();
+      }
+      radrawRec(355, 237, 99, 25);
+      ////////////////
+      // Rec body-outline 1
+      function bodrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+      }
+      bodrawRec(xPos - 100, yPos - 170, 200, 65);
+      ////////////////
+      // Rec arm piece 4
+      function radrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#003380';
+        ctx.fill();
+      }
+      radrawRec(295, 278, 99, 25);
+      ////////////////
+      // Rec arm piece 5
+      function radrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fill();
+      }
+      radrawRec(394, 285, 25, 12);
+      ////////////////
+      // Rec arm piece 6
+      function radrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fill();
+      }
+      radrawRec(419, 282, 35, 18);
+      ////////////////
+      // Rec body-outline 2
+      function bodrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+      }
+      bodrawRec(xPos - 100, yPos - 105, 200, 40);
+      ////////////////
+      // Rec center
+      function rcdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#003380';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rcdrawRec(xPos - 30, yPos - 50, 60, 128);
+      ////////////////
+      // Oval-grill 1
+      let cX = 0;
+      let cY = 0;
 
-    ///////////////////
-    //middle Lower leg
-    function midLeg(x, y) {
-      //Top Rectangle
+      function drawArc() {
+        ctx.save();
+        ctx.translate(c.width / 2, c.height / 2);
+        ctx.scale(0.8, 0.9);
+        ctx.beginPath();
+        ctx.arc(cX, -19, radius, 0, 2 * Math.PI, false);
+        ctx.restore();
+        ctx.fillStyle = '#cccccc';
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#fff';
+        ctx.stroke();
+      }
+      drawArc();
+      ////////////////
+      // Rec grill outline 1
+      function godrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+      }
+      godrawRec(xPos - 13, 335, 25, 45);
+      ////////////////
+      // Grill line 1
+      function gldrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#999999';
+        ctx.fill();
+        ctx.stroke();
+      }
+      gldrawRec(xPos - 15, yPos - 33, 29, 1);
+      ////////////////
+      // Grill line 2
+      function gldrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#999999';
+        ctx.fill();
+        ctx.stroke();
+      }
+      gldrawRec(xPos - 20, yPos - 20, 40, 1);
+      ////////////////
+      // Grill line 3
+      function gldrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#999999';
+        ctx.fill();
+        ctx.stroke();
+      }
+      gldrawRec(xPos - 19, yPos - 8, 38, 1);
+      ////////////////
+      // Grill line 4
+      function gldrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 2;
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#999999';
+        ctx.fill();
+        ctx.stroke();
+      }
+      gldrawRec(xPos - 10, 378, 20, 1);
+      ////////////////
+      // Oval-grill 2
+      function drawOneArc() {
+        ctx.save();
+        ctx.translate(c.width / 2, c.height / 2);
+        ctx.scale(0.8, 0.9);
+        ctx.beginPath();
+        ctx.arc(cX, 50, radius, 0, 2 * Math.PI, false);
+        ctx.restore();
+        ctx.fillStyle = '#cccccc';
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#fff';
+        ctx.stroke();
+      }
+      drawOneArc();
+      ////////////////
+      // Rec grill outline 2
+      function godrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#fff';
+        ctx.stroke();
+      }
+      godrawRec(xPos - 13, 398, 25, 45);
+      ////////////////
+      // Inside rec outline 1
+      function iroRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#fff';
+        ctx.fill();
+        ctx.stroke();
+      }
+      iroRec(xPos - 11, 405, 21, 1);
+      ////////////////
+      // Inside rec outline 2
+      function iroRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#fff';
+        ctx.fill();
+        ctx.stroke();
+      }
+      iroRec(xPos - 11, 415, 21, 1);
+      ////////////////
+      // Inside rec outline 3
+      function iroRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#fff';
+        ctx.fill();
+        ctx.stroke();
+      }
+      iroRec(xPos - 11, 425, 21, 1);
+      ////////////////
+      // Inside rec outline 4
+      function iroRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#737373';
+        ctx.strokeStyle = '#fff';
+        ctx.fill();
+        ctx.stroke();
+      }
+      iroRec(xPos - 11, 435, 21, 1);
+      ///////////////
+      // Left rec 1
+      function leftdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 5;
+        ctx.fill();
+        ctx.stroke();
+      }
+      leftdrawRec(233, 230, 30, 221);
+      ///////////////
+      // left rec 2
+      function leftOdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      leftOdrawRec(275, 325, 60, 40);
+      ///////////////
+      // left rec 3
+      function leftdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 5;
+        ctx.fill();
+        ctx.stroke();
+      }
+      leftdrawRec(303, 380, 30, 71);
+      ///////////////
+      // Rec button 1
+      function rbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#003380';
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rbdrawRec(277, 380, 15, 5);
+      ///////////////
+      // Rec button 2
+      function rbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#003380';
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rbdrawRec(277, 393, 15, 5);
+      ///////////////
+      // Rec button 3
+      function rbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#003380';
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rbdrawRec(277, 406, 15, 5);
+      ///////////////
+      // Rec button 4
+      function rbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#003380';
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rbdrawRec(277, 420, 15, 5);
+      ///////////////
+      // Rec button 5
+      function rbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#003380';
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rbdrawRec(277, 434, 15, 5);
+      ///////////////
+      // Rec button 6
+      function rbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#003380';
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rbdrawRec(277, 447, 15, 5);
+      ///////////////
+      // Right rec 1
+      function rightdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 5;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rightdrawRec(486, 230, 30, 221);
+      ///////////////
+      // Right rec 2
+      function rightdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 5;
+        ctx.fill();
+        ctx.stroke();
+      }
+      rightdrawRec(417, 327, 56, 124);
+      ///////////////
+      // Bottom rec-top 1
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(290, 465, 35, 23);
+      ///////////////
+      // Bottom rec-top 2
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(345, 465, 60, 23);
+      ///////////////
+      // Bottom rec-top 3
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(425, 465, 50, 23);
+      ///////////////
+      // Bottom rec-top 4
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(485, 465, 32, 23);
+      ///////////////
+      // Bottom rec-bottom
+      function brbdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#d9d9d9';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brbdrawRec(227, 465, 38, 68);
+      ///////////////
+      // Bottom rec-bottom inside shape 1
+      function bisdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 1;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bisdrawRec(232, 470, 4, 40);
+      ///////////////
+      // Bottom rec-bottom inside shape 2
+      function bisdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 1;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bisdrawRec(240, 470, 4, 40);
+      ///////////////
+      // Bottom rec-bottom inside shape 3
+      function bisdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 1;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bisdrawRec(248, 470, 4, 40);
+      ///////////////
+      // Bottom rec-bottom inside shape 4
+      function bisdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#002966';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bisdrawRec(256, 470, 4, 40);
+      ///////////////
+      // Bottom rec-bottom shape
+      function brbsdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#737373';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brbsdrawRec(232, 516, 27, 10);
+      ///////////////
+      // Bottom rec-bottom
+      function brbOdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#d9d9d9';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brbOdrawRec(280, 495, 53, 38);
+      ///////////////
+      // Bottom rec-bottom inside rec
+      function birdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#737373';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      birdrawRec(285, 502, 20, 27);
+      ///////////////
+      // Bottom square
+      function bsdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#003380';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bsdrawRec(353, 495, 45, 38);
+      ///////////
+      /// Bottom circle 1
       ctx.beginPath();
-      ctx.fillStyle = '#999999';
-      ctx.lineWidth = 2;
-      ctx.fillRect(x, y + 32.5, 20, 17.5);
-      //Top isosceles trapezoid
-      ctx.beginPath();
-      ctx.lineWidth = 2;
-      ctx.moveTo(x - 20, y + 50);
-      ctx.lineTo(x + 40, y + 50);
-      ctx.lineTo(x + 60, y + 100);
-      ctx.lineTo(x - 40, y + 100);
-      ctx.closePath();
-      ctx.stroke();
-    };
-
-    //call the function
-    midLeg(365, 550);
-
-    /////////////////////
-    //Head
-    function R2head(x, y) {
-      ctx.beginPath();
-      ctx.arc(x, y, 155, 0, Math.PI, true);
-      ctx.closePath();
-      ctx.strokeStyle = '#999';
-      ctx.fillStyle = '#fff';
-      ctx.fill();
-      ctx.stroke();
-      ctx.clip(); //clipping so no shapes can be outside the head
-
-      //Head styling rectangles
-      ctx.beginPath();
-      ctx.lineWidth = 2;
+      ctx.arc(375, 514, 17, 0, 2 * Math.PI);
+      ctx.linewidth = 2;
       ctx.fillStyle = '#003380';
-      //all rectangles used for styling on the head
-      ctx.fillRect(215, 180, 325, 10); //Bottom band
-      ctx.fillRect(215, 135, 80, 35); //rectangle One left side
-      ctx.fillRect(300, 135, 10, 35); //rectangle Two
-      ctx.fillRect(315, 135, 20, 35); //rectangle Three buttons
-      ctx.fillRect(340, 145, 10, 25); //rectangle Four
-      ctx.fillRect(355, 145, 40, 25); //rectangle Five red light
-      ctx.fillRect(295, 40, 75, 25); //rectangle Six top of head
-      ctx.fillRect(385, 40, 75, 25); //rectangle Six top of head
-
-      for (i = 0; i < 5; i++) { //for loop for the array of rectangles on the head
-        ctx.fillRect((450 + (i * 20)), 145, 15, 25);
-      };
-      //shading for head
-      ctx.fillStyle = '#999';
       ctx.strokeStyle = '#fff';
-      ctx.lineWidth = 2;
-      ctx.rect(320, 140, 10, 7.5);
-      ctx.rect(320, 155, 10, 7.5);
+      ctx.fill();
       ctx.stroke();
-      ctx.fill();
-      ctx.closePath();
-
-      //red light
+      ///////////
+      /// Bottom circle inside 2
       ctx.beginPath();
-      ctx.arc(380, 157.5, 7.5, 0, 2 * Math.PI);
-      ctx.fillStyle = '#FD0000';
+      ctx.arc(375, 514, 10, 0, 2 * Math.PI);
+      ctx.linewidth = 2;
+      ctx.fillStyle = '#8c8c8c';
+      ctx.strokeStyle = '#fff';
       ctx.fill();
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = '#FF864A';
       ctx.stroke();
-      ctx.closePath();
-
-      //R2's scope
+      ///////////////
+      // Bottom small-square 1
+      function bssdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = ' #d9d9d9';
+        ctx.strokeStyle = '#8c8c8c';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bssdrawRec(372, 499, 5, 9);
+      ///////////////
+      // Bottom small-square 2
+      function bssdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = ' #d9d9d9';
+        ctx.strokeStyle = '#8c8c8c';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bssdrawRec(360, 511, 9, 5);
+      ///////////////
+      // Bottom small-square 3
+      function bssdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = ' #d9d9d9';
+        ctx.strokeStyle = '#8c8c8c';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bssdrawRec(372, 520, 5, 9);
+      ///////////////
+      // Bottom small-square 4
+      function bssdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = ' #d9d9d9';
+        ctx.strokeStyle = '#8c8c8c';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      bssdrawRec(381, 511, 9, 5);
+      ///////////
+      /// Bottom circle inside 3
       ctx.beginPath();
-      ctx.arc(420, 155, 17.5, 0, 2 * Math.PI);
-      ctx.closePath();
-      ctx.fillStyle = '#999';
-      ctx.fill();
-      ctx.beginPath()
-      ctx.arc(420, 155, 10, 0, 2 * Math.PI);
-      ctx.fillStyle = '#eee';
-      ctx.fill();
-      ctx.lineWidth = 6;
-      ctx.strokeStyle = '#bfbfbf';
-      ctx.stroke();
-      ctx.closePath();
-
-
-      //Rd2 main camera outline shape;
-      ctx.beginPath();
-      ctx.lineWidth = 4;
-      ctx.moveTo(365 - 10, 25 + 50);
-      ctx.lineTo(365 + 40, 25 + 50);
-      ctx.lineTo(365 + 45, 25 + 102.5);
-      ctx.lineTo(365 + 10, 25 + 102.5);
-      ctx.lineTo(365, 25 + 95);
-      ctx.lineTo(365 - 20, 25 + 95);
-      ctx.strokeStyle = '#086696';
-      ctx.stroke();
-      ctx.fillStyle = '#003380';
-      ctx.fill();
-      ctx.clip();
-      ctx.closePath();
-
-      //camera and shading
-      ctx.beginPath();
+      ctx.arc(375, 514, 5, 0, 2 * Math.PI);
+      ctx.linewidth = 2;
       ctx.fillStyle = '#fff';
-      ctx.fillRect(375, 120, 55, 2.55);
+      ctx.strokeStyle = '#003380';
       ctx.fill();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.arc(380, 97.5, 20, 0, 2 * Math.PI);
-      ctx.closePath();
-      ctx.fillStyle = '#000';
-      ctx.fill();
-      ctx.beginPath()
-      ctx.arc(380, 97.5, 15, 0, 2 * Math.PI);
-      ctx.fillStyle = '#222';
-      ctx.fill();
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#999';
       ctx.stroke();
-      ctx.closePath();
-    };
+      ///////////////
+      // Bottom rec-left 1
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(413, 496, 26, 37);
+      ///////////////
+      // Bottom rec-left 2
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(447, 496, 12, 37);
+      ///////////////
+      // Bottom rec-left 3
+      function brtdrawRec(xPos, yPos, recWidth, recHeight) {
+        ctx.beginPath();
+        ctx.rect(xPos, yPos, recWidth, recHeight);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#d9d9d9';
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+      }
+      brtdrawRec(466, 496, 12, 37);
 
-    R2head(375, 204);
+      ///////////////
+      // Hexagon
+      side = 0,
+        size = 20,
+        x = 505,
+        y = 515;
+
+      function drawHex() {
+
+        ctx.beginPath();
+        ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+
+        for (side; side < 7; side++) {
+          ctx.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+        }
+        ctx.strokeStyle = '#cccccc';
+        ctx.fillStyle = " #003380";
+        ctx.fill();
+        ctx.stroke();
+      }
+      drawHex();
+      ///////////
+      /// Bottom circle inside 2
+      ctx.beginPath();
+      ctx.arc(505, 515, 10, 0, 2 * Math.PI);
+      ctx.linewidth = 2;
+      ctx.fillStyle = '#bfbfbf';
+      ctx.strokeStyle = '#bfbfbf';
+      ctx.fill();
+      ctx.stroke();
+      ///////////
+      /// Bottom hexagon behind rec-line 1
+      function drawLine() {
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(305, 582); //  Move bottom and scale
+        ctx.lineTo(281, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 2
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(325, 582); //  Move bottom and scale
+        ctx.lineTo(306, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 3
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(331, 582); //  Move bottom and scale
+        ctx.lineTo(313, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 4
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(357, 582); //  Move bottom and scale
+        ctx.lineTo(348, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 5
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(363, 582); //  Move bottom and scale
+        ctx.lineTo(354, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 6
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(390, 582); //  Move bottom and scale
+        ctx.lineTo(396, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 7
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(396, 582); //  Move bottom and scale
+        ctx.lineTo(402, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 8
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(418, 582); //  Move bottom and scale
+        ctx.lineTo(436, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 9
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(425, 582); //  Move bottom and scale
+        ctx.lineTo(444, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+        ///////////
+        /// Bottom hexagon behind rec-line 10
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.strokeStyle = '#999999';
+        ctx.moveTo(446, 582); //  Move bottom and scale
+        ctx.lineTo(469, 540); // Move top and scale
+        ctx.fill();
+        ctx.stroke();
+      }
+      drawLine();
+      /////////Nick's Code/////////////
+      //Outer Legs
+      function R2leg(x, y, legSide) {
+        //rectangles for top of legs
+        let trackY = y + 360;
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.rect(x, y, 80, 100);
+        ctx.rect(x + 10, y + 100, 60, 200);
+        ctx.rect(x, y + 300, 80, 60);
+        ctx.stroke();
+
+        //Top isosceles trapezoid
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.moveTo(x + 10, trackY);
+        ctx.lineTo(x + 70, trackY);
+        ctx.lineTo(x + 90, trackY + 70);
+        ctx.lineTo(x - 10, trackY + 70);
+        ctx.closePath();
+        ctx.stroke();
+
+        //Bottom isosceles trapezoid
+        ctx.beginPath();
+        ctx.moveTo(x - 12.5, trackY + 70);
+        ctx.lineTo(x + 10, trackY + 90);
+        ctx.lineTo(x + 70, trackY + 90);
+        ctx.lineTo(x + 92.5, trackY + 70);
+        ctx.stroke();
+
+        //if statement to decide which side the leg is on
+        if (legSide == "L") {
+          ctx.beginPath();
+          ctx.rect(x + 80, y + 20, 15, 50);
+          ctx.stroke();
+        } else {
+          ctx.beginPath();
+          ctx.rect(x, y + 20, -15, 50);
+          ctx.stroke();
+        };
+      };
+      //call the functions
+      R2leg(125, 200, "L");
+      R2leg(545, 200, "R");
+
+      ///////////////////
+      //middle Lower leg
+      function midLeg(x, y) {
+        //Top Rectangle
+        ctx.beginPath();
+        ctx.fillStyle = '#999999';
+        ctx.lineWidth = 2;
+        ctx.fillRect(x, y + 32.5, 20, 17.5);
+        //Top isosceles trapezoid
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.moveTo(x - 20, y + 50);
+        ctx.lineTo(x + 40, y + 50);
+        ctx.lineTo(x + 60, y + 100);
+        ctx.lineTo(x - 40, y + 100);
+        ctx.closePath();
+        ctx.stroke();
+      };
+
+      //call the function
+      midLeg(365, 550);
+
+      /////////////////////
+      //Head
+      function R2head(x, y) {
+        ctx.beginPath();
+        ctx.arc(x, y, 155, 0, Math.PI, true);
+        ctx.closePath();
+        ctx.strokeStyle = '#999';
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+        ctx.stroke();
+        ctx.clip(); //clipping so no shapes can be outside the head
+
+        //Head styling rectangles
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.fillStyle = '#003380';
+        //all rectangles used for styling on the head
+        ctx.fillRect(215, 180, 325, 10); //Bottom band
+        ctx.fillRect(215, 135, 80, 35); //rectangle One left side
+        ctx.fillRect(300, 135, 10, 35); //rectangle Two
+        ctx.fillRect(315, 135, 20, 35); //rectangle Three buttons
+        ctx.fillRect(340, 145, 10, 25); //rectangle Four
+        ctx.fillRect(355, 145, 40, 25); //rectangle Five red light
+        ctx.fillRect(295, 40, 75, 25); //rectangle Six top of head
+        ctx.fillRect(385, 40, 75, 25); //rectangle Six top of head
+
+        for (i = 0; i < 5; i++) { //for loop for the array of rectangles on the head
+          ctx.fillRect((450 + (i * 20)), 145, 15, 25);
+        };
+        //shading for head
+        ctx.fillStyle = '#999';
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.rect(320, 140, 10, 7.5);
+        ctx.rect(320, 155, 10, 7.5);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        //red light
+        ctx.beginPath();
+        ctx.arc(380, 157.5, 7.5, 0, 2 * Math.PI);
+        ctx.fillStyle = '#FD0000';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#FF864A';
+        ctx.stroke();
+        ctx.closePath();
+
+        //R2's scope
+        ctx.beginPath();
+        ctx.arc(420, 155, 17.5, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fillStyle = '#999';
+        ctx.fill();
+        ctx.beginPath()
+        ctx.arc(420, 155, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = '#eee';
+        ctx.fill();
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = '#bfbfbf';
+        ctx.stroke();
+        ctx.closePath();
+
+        //Rd2 main camera outline shape;
+        ctx.beginPath();
+        ctx.lineWidth = 4;
+        ctx.moveTo(365 - 10, 25 + 50);
+        ctx.lineTo(365 + 40, 25 + 50);
+        ctx.lineTo(365 + 45, 25 + 102.5);
+        ctx.lineTo(365 + 10, 25 + 102.5);
+        ctx.lineTo(365, 25 + 95);
+        ctx.lineTo(365 - 20, 25 + 95);
+        ctx.strokeStyle = '#086696';
+        ctx.stroke();
+        ctx.fillStyle = '#003380';
+        ctx.fill();
+        ctx.clip();
+        ctx.closePath();
+
+        //camera and shading
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(375, 120, 55, 2.55);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(380, 97.5, 20, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fillStyle = '#000';
+        ctx.fill();
+        ctx.beginPath()
+        ctx.arc(380, 97.5, 15, 0, 2 * Math.PI);
+        ctx.fillStyle = '#222';
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#999';
+        ctx.stroke();
+        ctx.closePath();
+      };
+
+      R2head(375, 204);
+    };
   </script>
+</head>
+
+<body>
+  <canvas id="canvas" width="750" height="750"></canvas>
 </body>
 
 </html>
